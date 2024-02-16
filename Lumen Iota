@@ -1,0 +1,15 @@
+using godot;
+
+public class PlayerController : MonoBehaviour
+{
+    public float speed = 5f;
+
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
+        transform.Translate(moveDirection * speed * Time.deltaTime);
+    }
+}
